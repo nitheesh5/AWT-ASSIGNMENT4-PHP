@@ -1,0 +1,763 @@
+1. PHP program to choose a random number and display its square root. [ rand()]
+
+<html>
+<head><title>Random</title></head>
+<body>
+<p>Number generated randomly is  <?php
+    $number = rand(1, 100);
+    echo $number;
+?>.<br> 
+square root of the selected number is <?php echo $number?> is <?php
+    echo sqrt($number);
+?>.</p>
+</body>
+</html>
+
+---------------------------------------------------------------------
+2. Write a PHP program to display a digital clock which displays the current time 
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="refresh" content="1"/>
+
+<?php
+date_default_timezone_set("Asia/kolkata");
+ echo " Today's Date is date("h:i:s:a");?>
+</head>
+</html>
+
+--------------------------------------------------------------------------
+
+3. Write a PHP program to find a reverse number, also display sum of digit of given
+number and check given number is palindrome or not.
+
+<html>
+
+<body>
+
+	<form action="" method="post">
+	<label>Enter number</label>
+	<input type="text" name="num">
+	<button  name="submit">Submit</button>
+	</form>
+	
+</body>
+</html>
+<?php
+	$num=$_POST['num'];
+	$rev=0;
+	$sum=0;
+	$n=$num;
+	while($num>1)
+	{
+		$rem=$num%10;
+		$rev=($rev*10)+$rem;
+		$sum=$sum+$rem;
+		$num=($num/10);
+	}
+	
+	
+
+	echo "reverse of no is:$rev"; echo "<br>";
+	echo "Sum of no is:$sum"; echo "<br>";
+	
+	if($n==$rev)
+	echo "Number $n is palindrome";
+	else
+	echo "Number $n is not a palindrome";
+?>
+
+-----------------------------------------------------------------------
+
+4. Write a PHP program to check whether given number is Armstrong or not
+ex: 153 = 1*1*1 + 5*5*5 + 3*3*3 
+
+<html>
+
+<body>
+
+	<form action="" method="post">
+	<label>Enter number</label>
+	<input type="text" name="num">
+	<button  name="submit">Submit</button>
+	</form>
+	
+</body>
+</html>
+
+
+<?php  
+$num=$_POST['num'];
+$tot=0;  
+$y=$num;  
+while($y!=0)  
+{  
+$rem=$y%10;  
+$tot=$tot+$rem*$rem*$rem;  
+$y=$y/10;  
+}  
+if($num==$tot)  
+{  
+echo "Yes $num is an Armstrong number";  
+}  
+else  
+{  
+echo "No $num is not an armstrong number";  
+}  
+?>  
+
+----------------------------------------------------------------------
+
+5. Write a PHP program to Add, Subtract, Multiply, Divide the 2 number using switch case
+<html>
+<head><title>Random</title></head>
+<body style="background-color: black;color: yellow;">
+<center>
+    <h1>
+        ARITHMETIC OPERATIONS USING SWITCH CASE 
+    </h1>
+     
+    <form method="post">
+        <table border="0">
+            <tr>
+                <td> <input type="text" name="num1" placeholder="Enter value 1"/>
+                </td>
+            </tr>
+            <tr>
+            <td> <input type="text" name="num2"  placeholder="Enter value 2"/>
+                </td>
+            </tr>
+            <tr>
+                <td> <input type="text" name="opr" placeholder="Enter the arithmetic operator"/>
+                </td>
+            </tr>
+            <tr>
+                <td> <input type="submit" name="submit"
+                    value="Submit"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+ 
+<?php
+ 
+
+ 
+    $num1 = $_POST['num1'];
+    $num2 = $_POST['num2'];
+    $opr = $_POST['opr'];
+ 
+    echo "The first number is $num1"; 
+    echo "</br>";
+    echo "The second number is $num2"; 
+    echo "</br>";
+
+    switch($ch) {
+        case '+':
+            $res = $num1 + $num2;
+            echo " Addition of two numbers = " . $res ;
+            break;
+ 
+        case '-':
+            $res = $num1 - $num2;
+            echo " Subtraction  of two numbers= " . $res ;
+            break;
+ 
+        case '*':
+            $res = $num1 * $num2;
+            echo " Multiplication of two numbers = " . $res ;
+            break;
+ 
+        case '/':
+            $res = $num1 / $num2;
+            echo " Division of two numbers = " . $res ;
+            break;
+ 
+        default:
+            echo ("invalid option\n");
+    }
+
+?>
+
+</center>
+</body>
+</html>
+
+
+
+------------------------------------------------------------------------
+
+6. Write a PHP program to display Fibonacci series and display prime number in that
+series.
+
+
+<html>
+
+<body>
+
+	<form action="" method="post">
+	<label>Enter number</label>
+	<input type="text" name="num">
+	<button  name="submit">Submit</button>
+	</form>
+	
+</body>
+</html>
+
+
+
+<?php
+	$num1=$_POST['num'];
+	$num=0;
+	$n1=0;
+	$n2=1;
+	$count=0;
+	
+	echo $n1.' '.$n2.' ';
+	while($num<$num1)
+	{
+		$n3=$n2+$n1;
+		echo $n3.' ';
+		for($i=1;$i<$n3;$i++)
+		{
+			if($num%$i==0)
+			$count++;
+		}
+		if($count==2)
+		echo " $n3 is a prime number <br> ";
+		else
+		echo "$n3 is not a prime number<br> ";
+		$count=0;
+		$n1=$n2;
+		$n2=$n3;
+		$num=$num+1;
+	}
+
+?>
+
+------------------------------------------------------------------------------
+7. Prepare Electricity bill from user input based on a given tariff. Write a PHP program to
+input previous reading and present reading and prepare an electricity bill using the
+following conditions.
+
+<!DOCTYPE html>
+
+<head>
+	<title>PHP - Calculation of Electricity Bill</title>
+</head>
+
+<?php
+
+    $units = $_POST['unit'];
+   if($units <= 100) {
+        $bill = $units *3;
+    }
+    else if($units > 100 && $units <= 200) {
+        $bill = ($units * 4);
+    }
+    else if($units > 200 && $units <= 300) {
+       
+        $bill = ($units * 5);
+    }
+    else {
+        
+        $bill = ($units * 6);
+    }
+   ?>
+
+<body>
+	<div id="page-wrap">
+		<h1>Calculate Electricity Bill</h1>
+
+		<form action="" method="post" id="quiz-form">
+            	<input type="number" name="unit" id="units" placeholder="Please enter no. of Units" />
+            	<input type="submit" name="unit-submit" id="unit-submit" value="Submit" />
+		</form>
+
+		<div>
+		    <?php echo '<br />' . $bill; ?>
+		</div>
+	</div>
+</body>
+</html>
+
+--------------------------------------------------------------------------
+8.Write a PHP script to create Student application form for Nitte PG course and display all
+the details of the Student
+
+
+<!-- <?php
+
+
+
+
+    
+    echo $_POST['ftname'];
+    echo $_POST['mdname'];
+    echo $_POST['ltname'];
+    echo $_POST['fathername'];
+    echo $_POST['msg'];
+    echo $_POST['mblno'];
+    echo $_POST['mail'];
+    echo $_POST['dob'];
+   
+    
+    
+
+    $selected_radio=$_POST['gender'];
+    echo $selected_radio;
+
+    
+
+    echo $_POST['perc'];
+
+    $hobbi = $_POST['hoby_list'];
+    if(empty($hobbi)) 
+    {
+        echo("You didn't select any buildings.");
+    } 
+    else 
+    {
+        $N = count($hobbi);
+
+        echo("Hobbies: ");
+        for($i=0; $i < $N; $i++)
+        {
+        echo($hobbi[$i] . " ");
+        }
+    }
+
+    echo $_POST['clg'];
+
+    $selected_course=$_POST['course'];
+    echo $selected_course;
+
+    $select_val=$_POST['pg'];
+    echo $select_val;
+
+    
+    
+
+?> -->
+
+
+<html>
+<head>
+
+</head>
+<body>
+<table cellpadding="6" width="50%" bgcolor="wheat" align="center" cellspacing="2" border="10">  
+    <tr>    
+    <td  align="center" colspan="2"><font color="#0000FF">Apllication Details</font></td>  
+    </tr>    
+    <tr>    
+    <td>Name:</td>    
+    <td><?php echo $_POST['ftname']; ?>
+    <?php echo $_POST['mdname']; ?>
+    <?php echo $_POST['ltname']; ?> </td>  
+    </tr>  
+    <tr>    
+    <tr>
+    <td>image</td>
+    <td><img src="<?php $_POST['img']; ?>.jpg" width="100" height="100"></td>
+    </tr>
+    <td>Father name:</td>   
+    <td><?php echo $_POST['fathername']; ?></td>  
+    </tr>  
+    <tr>    
+        <td>Address:</td>    
+        <td><?php echo $_POST['msg'];?></td> 
+    </tr>    
+        <td>Phone NO:</td>    
+        <td><?php echo $_POST['mblno']; ?></td>  
+    </tr>  
+
+    </tr>    
+        <td>Email</td>    
+        <td><?php echo $_POST['mail']; ?></td>  
+    </tr> 
+
+    <tr>
+        <td>Date of Birth</td>    
+        <td><?php echo $_POST['dob']; ?></td>
+    </tr>
+
+    <tr>
+        <td>Gender</td>    
+        <td><?php echo $selected_radio ?></td>
+    </tr>
+
+    <tr>
+        <td>Percentage in Degree</td>    
+        <td><?php echo $_POST['perc']; ?></td>
+    </tr>
+
+
+    <tr>
+        <td>Hobbies</td>    
+        <td><?php 
+            $hobbi = $_POST['hoby_list'];
+            if(empty($hobbi)) 
+            {
+                echo("You didn't select any Hobbies.");
+            } 
+            else 
+            {
+                $N = count($hobbi);
+                for($i=0; $i < $N; $i++)
+                {
+                    echo($hobbi[$i] . " ");
+                }
+            } 
+        ?></td>
+    </tr>
+
+    <tr>
+        <td>Institution Studied</td>    
+        <td><?php echo $_POST['clg']; ?></td>
+    </tr>
+
+    <tr>
+        <td>Course studied</td>    
+        <td><?php
+          $selected_course=$_POST['course'];
+          echo $selected_course;
+         ?></td>
+    </tr>
+
+
+    <tr>
+        <td>Course Offered</td>    
+        <td><?php 
+             $select_val=$_POST['pg'];
+             echo $select_val;         
+        ?></td>
+    </tr>
+
+
+    
+</table>
+
+</body>
+</html>
+----------------------------------------------------------------------------
+9.Create a from that accept the Emp image, Emp NO, first name, last name, address,
+gender, Designation, phone-number, Emp Category (Part Time or Full Time or contract),
+number of hours (only part time employees) and the basic salary of the employee
+
+<html>
+<head>
+    <title>Random</title>
+    <script type="text/javascript">
+function findselected(val) { 
+    var cat = val;
+   if (cat == "part_time") {
+      document.getElementById("hours").disabled = false;
+   } else {
+     document.getElementById("hours").disabled=true;
+   }
+} 
+</script> 
+</head>
+<body style="background-color: black;color: yellow;">
+<center>
+     <h1>
+        Employee Details
+    </h1>
+     
+    <form method="post" action="#">
+        <table border="0">            
+            <tr>
+                <td>Photo</td><td><input type="file" name="pic"  placeholder="Photo"/></td>
+            </tr>
+            <tr>
+                <td>Employee No</td><td><input type="text" name="eno"  placeholder="Employee Number"/></td>
+            </tr>
+            <tr>
+                <td>First Name</td><td><input type="text" name="fname" placeholder="First Name"/></td>
+            </tr>
+            <tr>
+                <td>Last Name</td><td><input type="text" name="lname"  placeholder="Last Name"/></td>
+            </tr>
+            <tr>
+                <td>Address</td><td><textarea name="address" placeholder="Address"></textarea></td>
+            </tr>
+            <tr>
+                <td>Gender</td><td><input type="radio" name="gender"  value="male"/>Male
+                    <input type="radio" name="gender"  value="female"/>Female</td>
+            </tr>
+            <tr>
+                <td>Designation</td><td><input type="text" name="desig"  placeholder="Designation"/></td>
+            </tr>
+            <tr>
+                <td>Contact Number</td><td><input type="number" name="phone"  placeholder="Contact Number"/></td>
+            </tr>
+            <tr>
+                <td>Employee Category</td><td><input type="radio" name="cat" id="cat" value="part_time"  onChange="findselected(this.value)"/>Part Time
+                    <input type="radio" name="cat"  id="cat" value="full_time"  onChange="findselected(this.value)" />Full Time
+                    <input type="radio" name="cat"  id="cat" value="contract"   onChange="findselected(this.value)"/>Contract</td>
+            </tr>
+            <tr id="hrs" >
+                <td>Number Of Hours</td><td><input type="text" name="hours"  id="hours" value="0" placeholder="Number of Hours"  disabled /></td>
+            </tr>
+            <tr>
+                <td>Basic Salary</td><td><input type="number" name="salary"  placeholder="Basic salary"/></td>
+            </tr>
+            <tr>
+               <td></td> <td> <input type="submit" name="submit" value="Submit"/></td>
+            </tr>
+        </table>
+    </form>
+
+ 
+<?php   
+       
+        $cat = $_POST['cat']; 
+        $basic = $_POST['salary'];
+        $salary=0;  
+        $da=0;
+        $hra=0;
+        $pf=0;
+        $tax=0;
+        if ($cat == 'part_time')
+        {
+
+        $hrs = $_POST['hours'];
+            $salary = $hrs * 100;
+        }
+        elseif ($cat == 'full_time')
+        {
+            
+            if($basic < 1000){
+
+            $da= $basic * 0.45;
+            $hra= $basic * 0.10;
+            $pf=$basic * 0;
+            $tax=$basic * 0;
+            $gross=$basic + $da + $hra;
+            $salary= $gross - $pf - $tax;
+            }
+            elseif($basic < 5000 and $basic >=1000){
+                            
+            $da= $basic * 0.75;
+            $hra= $basic * 0.20;
+            $pf=1200;
+            $tax=$basic * 0.05;
+            $gross=$basic + $da + $hra;
+            $salary= $gross - $pf - $tax;
+            }
+            elseif($basic > 5000){
+                            
+            $da= $basic * 0.90;
+            $hra= $basic * 0.30;
+            $pf=$basic * 0.05;
+            $tax=$basic * 0.15;
+            $gross=$basic + $da + $hra;
+            $salary= $gross - $pf - $tax;
+            }
+        }
+        elseif ($cat == 'contract')
+        {
+            
+            if($basic < 5000){
+
+            $da= 200;
+            $hra= 0;
+            $tax=0;
+            $gross=$basic + $da + $hra;
+            $salary= $gross - $tax;
+            }
+            elseif($basic > 5000 and $basic <=25000){
+                            
+            $da= $basic * 0.15;
+            $hra= 1000;
+            $tax=$basic * 0.03;
+            $gross=$basic + $da + $hra;
+            $salary= $gross  - $tax;
+            }
+            elseif($basic > 25000){
+                            
+            $da= $basic * 0.20;
+            $hra= $basic * 0.00;
+            $tax=$basic * 0.09;
+            $gross=$basic + $da + $hra;
+            $salary= $gross  - $tax;
+            }
+        }
+        if($cat == 'part_time'){
+        echo "The Basic Salary is $basic"; 
+        echo "</br>";
+        echo "The Salary is $salary";          
+        }
+        elseif($cat == 'full_time'){
+        echo "The Basic Salary is $basic"; 
+        echo "</br>";
+        echo "The DA is $da"; 
+        echo "</br>";        
+        echo "The HRA is $hra"; 
+        echo "</br>";
+        echo "The PF is $pf"; 
+        echo "</br>";
+        echo "The Tax is $tax"; 
+        echo "</br>";
+        echo "The Gross Salary is $gross"; 
+        echo "</br>";
+        echo "The Net Salary is $salary"; 
+        echo "</br>";            
+        }
+        elseif($cat == 'contract'){
+        echo "The Basic Salary is $basic"; 
+        echo "</br>";
+        echo "The DA is $da"; 
+        echo "</br>";        
+        echo "The HRA is $hra"; 
+        echo "</br>";
+        echo "The Tax is $tax"; 
+        echo "</br>";
+        echo "The Gross Salary is $gross"; 
+        echo "</br>";
+        echo "The Net Salary is $salary"; 
+        echo "</br>";            
+        }
+        
+?> 
+</center>
+</body>
+</html>
+
+
+---------------------------------------------------------------------------
+10.Write an html page to provide menu driven option for following string operations and
+PHP script to evaluate the string functions. Use switch case
+
+<html>
+<head><title>Assignmen4</title></head>
+<body style="background-color: black;color: yellow;">
+<center>
+     <h2>
+        String Operations
+    </h2>
+     
+    <form method="post">
+        <input type="text" name="txt" placeholder="Enter the String" required />
+        <br><br>
+        <input type="radio" name="str"  value="reverse" required/>Reverse
+        <input type="radio" name="str"  value="length"/>Length of String
+        <input type="radio" name="str"  value="substring"/>Substring
+        <input type="radio" name="str"  value="upper"/>Uppercase
+        <input type="radio" name="str"  value="lower"/>Lowercase
+        <input type="radio" name="str"  value="words"/>Number of words
+        <br><br>
+        <input type="submit" name="submit" value="Submit"/>
+    </form>
+
+ 
+<?php   
+     
+        $string =$_POST['str'];
+        $txt = $_POST['txt'];
+
+        switch($string){
+            case 'reverse': $rev = strrev($txt);
+                            echo 'The reversed string of '. $txt. ' is: '. $rev;
+                            break;
+            case 'length': $len = strlen($txt);
+                            echo "The length of the string ".$txt. " is: ". $len;
+                            break;
+            case 'substring':$sub = substr($txt, 5, 13);
+                            echo "The substring of the string ".$txt. " is: ". $sub;
+                            break;
+            case 'upper': $up = strtoupper($txt);
+                            echo "The string ".$txt. " in uppercase is: ". $up;
+                            break;
+            case 'lower':$low = strtolower($txt);
+                            echo "The string ".$txt. " in lowercase is: ". $low;
+                            break;
+            case 'words':$wrd = str_word_count($txt);
+                            echo "The number of words in the string ".$txt. " is: ". $wrd;
+                            break;
+
+        }
+       
+      
+?> 
+</center>
+</body>
+</html>
+
+
+-----------------------------------------------------------------------------
+11.Write a PHP program to accept item names and prices as string and segregate them by
+using arrays then find the Costliest item and Cheaper item. Calculate the total bill.
+<?php
+$name=$_POST['name'];
+$price=$_POST['price'];
+
+
+$s=explode(",",$name);
+$cn=count($s);
+$r=explode(",",$price);
+
+for($i=0;$i<$cn;$i++){
+echo $s[$i];
+echo " ";
+echo $r[$i];
+echo "<br>";
+
+}
+$res=max($r);
+$re=min($r);
+
+for($i=0;$i<$cn;$i++){
+
+    if($res==$r[$i])
+    echo "Highest Price Item  is ". $s[$i];
+    echo "<br>";
+    if($re==$r[$i])
+    echo "Lowest Price Item  is ". $s[$i];
+    echo "<br>";
+
+}
+
+
+
+?>
+--------------------------------------------------------------------------
+12.Write php code to design an item dropdown list with details displayed and Bill the
+selected Item
+<?php
+$itno=$_POST['itno'];
+$itname=$_POST['itname'];
+$price=$_POST['price'];
+$code=$_POST['code'];
+$quantity=$_POST['quantity'];
+$total=$quantity*$price;
+echo"Item No: $itno</br>";
+echo"Item ameo: $itname</br>";
+echo"Price: $price</br>";
+echo"Item Code: $code</br>";
+echo"Item Quantity: $quantity</br>";
+echo"Total Price: $total </br>";
+?>
+<body>
+    <a href="main.php"> Move to main</a>
+</body>
+------------------------------------------------------------------------------
+13. Write a function to calculate the factorial of a number (a non-negative integer). The
+function accepts the number as an argument.
+
+<?php 
+
+factfind($_POST['fact']);
+function factfind($fact) {
+  $res=1;
+for($i=1;$i<$fact;$i++){
+$res=$res*$i;}
+
+echo"Factorial is ".$res;
+}
+?>
+--------------------------------------------------------------------------
+
+
